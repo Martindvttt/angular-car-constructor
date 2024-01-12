@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Car Table</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Marque</th>
+        <th>Modèle</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td>{{ car.id }}</td>
+        <td>{{ car.marque }}</td>
+        <td>{{ car.modele }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="showDetails(car)">Détails</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-car-details *ngIf="showDetailsCard" [car]="selectedCar" (hideDetails)="hideDetailsCard()"></app-car-details>
+</div>
